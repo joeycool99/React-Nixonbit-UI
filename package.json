@@ -5,9 +5,12 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
+    "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@mui/icons-material": "^5.0.4",
     "@mui/material": "^5.0.4",
+    "@passbase/button": "^4.2.3",
+    "@passbase/react-native-passbase": "^2.10.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -23,7 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test", 
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -1,13 +1,15 @@
 
 import React,{useEffect,useState} from 'react';
-import './App.css';
+
 import { Grid,Box,AppBar,Toolbar,Typography,Button,IconButton ,Card,CardContent,CardActions} from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
+import RoomIcon from '@material-ui/icons/Room';
+
 import axios from "axios";
 import jwt from "jsonwebtoken"
 import { Link } from 'react-router-dom';
-
+import { KYC } from '../Kyc/KYC';
  const Product = (props) => {
 
     const[productList,setProductList]=useState([])
@@ -21,7 +23,7 @@ import { Link } from 'react-router-dom';
       if(decode.exp*1000<=Date.now()){
         props.history.push("/")
       }
-      else{
+      else{ 
         var response=await axios.get("https://authandautho.herokuapp.com/product/getproduct",{
           headers:{
 token:token
@@ -73,10 +75,20 @@ setCart(fin)
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Guvi-Products
+            Nixonbit Products Dashborad
+           
           </Typography>
-          <ShoppingCartIcon/>{cart}
-           <Button color="inherit"><a href="/">Logout </a></Button>
+        
+          {cart}<ShoppingCartIcon style={{"margin-right":"10px"}} />
+
+     
+            
+         
+          <KYC />
+           <Button style={{"backgroundColor":"white"}} color="inherit"><a href="/">Logout </a></Button>
+
+       
+         
         </Toolbar>
       </AppBar>
       <br/>
@@ -105,9 +117,11 @@ setCart(fin)
         <Button size="small" onClick={()=>updateproduct(row._id,--row.userquantity)} disabled={row.userquantity<=0}>-</Button>
       </CardActions>
     </Card>
-          </Grid>
-      ))}
     
+          </Grid>
+
+      ))}
+
       </Grid>
       
     </Box>
